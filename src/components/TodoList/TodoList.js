@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectTodos } from '../../redux/todoSlice';
 import { Grid, GridItem, Text, Todo } from 'components';
@@ -8,13 +8,6 @@ export const TodoList = () => {
   const todos = useSelector(selectTodos);
 
 
-  const [editedTodoId, setEditedTodoId] = useState(null);
-  const [editedText, setEditedText] = useState('');
-
-  const handleEdit = (id, text) => {
-    setEditedTodoId(id);
-    setEditedText(text);
-  };
 
 
   return (
@@ -31,7 +24,7 @@ export const TodoList = () => {
                 id={todo.id}
                 text={todo.text}
                 counter={index + 1}
-                onEdit={handleEdit}
+
               />
             </GridItem>
           ))}
